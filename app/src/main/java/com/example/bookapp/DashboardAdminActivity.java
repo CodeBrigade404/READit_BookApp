@@ -9,7 +9,9 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 
+import com.example.bookapp.adapters.AdapterCategory;
 import com.example.bookapp.databinding.ActivityDashboardAdminBinding;
+import com.example.bookapp.models.ModelCategory;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -47,17 +49,24 @@ public class DashboardAdminActivity extends AppCompatActivity {
         //edit text change listener search
         binding.searchEt.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
 
             @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                //called as when user type each other
+                try {
+                    adapterCategory.getFilter().filter(s);
+                }
+                catch (Exception e){
+
+                }
 
             }
 
             @Override
-            public void afterTextChanged(Editable editable) {
+            public void afterTextChanged(Editable s) {
 
             }
         });
@@ -71,7 +80,7 @@ public class DashboardAdminActivity extends AppCompatActivity {
             }
         });
 
-        //hand click,start category
+        //handle click,start category add screen
         binding.addCategoryBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
