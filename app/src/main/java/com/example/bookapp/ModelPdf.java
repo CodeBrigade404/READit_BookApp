@@ -19,7 +19,7 @@ public class ModelPdf {
         this.timestamp = timestamp;
     }
 
-    //-----------------Getters/Setters---------
+    //---------------Getters/Setters---------
 
 
 
