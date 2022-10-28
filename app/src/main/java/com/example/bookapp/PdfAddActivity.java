@@ -51,7 +51,7 @@ public class PdfAddActivity extends AppCompatActivity {
     private static final String TAG = "ADD_PDF_TAG";
 
     //Uri of picked Uri
-    private Uri pdfUri;
+    private Uri pdfUri=null;
 
     public PdfAddActivity() {
     }
@@ -191,7 +191,8 @@ public class PdfAddActivity extends AppCompatActivity {
         hashMap.put("description",""+description);
         hashMap.put("categoryId",""+selectedCategoryId);
         hashMap.put("url",""+upoadedPdfUrl);
-        hashMap.put("timestamp",timestamp);
+        hashMap.put("viewsCount",0);
+        hashMap.put("downloadsCount",0);
 
         //db reference :DB >Books
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Books");
