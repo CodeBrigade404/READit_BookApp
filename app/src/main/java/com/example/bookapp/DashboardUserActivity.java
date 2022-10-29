@@ -36,6 +36,15 @@ public class DashboardUserActivity extends AppCompatActivity {
                 checkUser();
             }
         });
+
+        //handle  click, open profile
+        binding.profileBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(DashboardUserActivity.this,ProfileActivity.class));
+            }
+        });
+
     }
 
     private void checkUser() {
