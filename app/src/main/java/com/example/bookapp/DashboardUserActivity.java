@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.example.bookapp.databinding.ActivityDashboardUserBinding;
 import com.google.firebase.auth.FirebaseAuth;
@@ -17,6 +18,8 @@ public class DashboardUserActivity extends AppCompatActivity {
 
     //firebase auth
     private FirebaseAuth firebaseAuth;
+
+    private ImageView book1,book2,book3,book4,book5,book6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +47,26 @@ public class DashboardUserActivity extends AppCompatActivity {
                 startActivity(new Intent(DashboardUserActivity.this,ProfileActivity.class));
             }
         });
+        binding.book1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(DashboardUserActivity.this,Book1_Activity.class));
+            }
+        });
+
+
+        //books
+        book1 = findViewById(R.id.book1);
+        book2 = findViewById(R.id.book2);
+        book3 = findViewById(R.id.book3);
+        book4 = findViewById(R.id.book4);
+        book5 = findViewById(R.id.book5);
+        book6 = findViewById(R.id.book6);
+
+
+        //onclick functions
+
+
 
     }
 

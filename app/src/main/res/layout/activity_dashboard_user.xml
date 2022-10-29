@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/back01"
-    tools:context=".DashboardUserActivity">
+    tools:context=".DashboardUserActivity"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:id="@+id/toolbarRl"
@@ -22,6 +23,7 @@
             android:layout_marginStart="10dp"
             android:src="@drawable/ic_person_white"
             android:background="@android:color/transparent" />
+
 
 
 
@@ -55,5 +57,65 @@
             android:background="@android:color/transparent"/>
 
     </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/book1"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/book1"/>
+
+        <ImageView
+            android:id="@+id/book2"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/book6" />
+        <ImageView
+            android:id="@+id/book3"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/book5" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp">
+
+
+        <ImageView
+            android:id="@+id/book4"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/book4"/>
+
+        <ImageView
+            android:id="@+id/book5"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/book3" />
+        <ImageView
+            android:id="@+id/book6"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/boo2" />
+
+    </LinearLayout>
 
 </RelativeLayout>
