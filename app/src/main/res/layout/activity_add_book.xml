@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/back01"
-    tools:context=".PdfAddActivity">
+    tools:context=".AddBookActivity">
 
     <!--toolbar-->
     <RelativeLayout
@@ -103,7 +103,7 @@
             android:textColorHint="@color/gray01"/>
     </com.google.android.material.textfield.TextInputLayout>
     <!--pick category from dialog-->
-    <TextView
+    <EditText
         android:id="@+id/categoryTv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

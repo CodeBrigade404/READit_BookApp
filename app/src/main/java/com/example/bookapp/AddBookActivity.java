@@ -3,7 +3,9 @@ package com.example.bookapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -11,8 +13,8 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.bookapp.databinding.ActivityAddBookBinding;
 import com.example.bookapp.databinding.ActivityAddCommentBinding;
-import com.example.bookapp.databinding.ActivityProfileEditBinding;
 import com.example.bookapp.databinding.ActivityRegisterBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -24,10 +26,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.HashMap;
 import java.util.Objects;
 
-public class ProfileEditActivity extends AppCompatActivity {
+public class AddBookActivity extends AppCompatActivity {
 
     //view binding
-    private ActivityProfileEditBinding binding;
+    private ActivityAddBookBinding binding;
 
     //firebase auth
     private FirebaseAuth firebaseAuth;
@@ -38,7 +40,7 @@ public class ProfileEditActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityProfileEditBinding.inflate(getLayoutInflater());
+        binding = ActivityAddBookBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         //init firebase auth
@@ -58,7 +60,7 @@ public class ProfileEditActivity extends AppCompatActivity {
         });
 
         //handle click, begin register
-        binding.updateBtn.setOnClickListener(new View.OnClickListener() {
+        binding.submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 validateDate();
@@ -67,28 +69,26 @@ public class ProfileEditActivity extends AppCompatActivity {
         });
     }
 
-    private String name = "", userType = "", address = "", email= "";
+    private String booktitle= "", des = "", category = "";
     private void validateDate() {
+        /*before creating accounts*/
+
+        //get data
+        booktitle = binding.titleEt.getText().toString().trim();
+        des = binding.descriptionEt.getText().toString().trim();
+        category = binding.categoryTv.getText().toString().trim();
 
 
-
-        name = binding.nameEt.getText().toString().trim();
-        userType = binding.userType.getText().toString().trim();
-        address = binding.address.getText().toString().trim();
-        email = binding.emailEt.getText().toString().trim();
 
         //validate data
-        if (TextUtils.isEmpty(name)){
+        if (TextUtils.isEmpty(booktitle)){
             Toast.makeText(this,"Enter Book name....",Toast.LENGTH_SHORT).show();
         }
-        else if(TextUtils.isEmpty(userType)){
-            Toast.makeText(this,"Enter Your Comment....!",Toast.LENGTH_SHORT).show();
+        else if(TextUtils.isEmpty(des)){
+            Toast.makeText(this,"Enter Description...!",Toast.LENGTH_SHORT).show();
         }
-        else if(TextUtils.isEmpty(address)){
-            Toast.makeText(this,"Enter Your Comment....!",Toast.LENGTH_SHORT).show();
-        }
-        else if(TextUtils.isEmpty(email)){
-            Toast.makeText(this,"Enter Your Comment....!",Toast.LENGTH_SHORT).show();
+        else if(TextUtils.isEmpty( category)){
+            Toast.makeText(this,"Enter Category....!",Toast.LENGTH_SHORT).show();
         }
         else{
             createComment();
@@ -97,7 +97,7 @@ public class ProfileEditActivity extends AppCompatActivity {
 
     private void createComment() {
         //show progress
-        progressDialog.setMessage("Adding Comment...");
+        progressDialog.setMessage("Adding Book...");
         progressDialog.show();
 
         //get timestamp
@@ -106,15 +106,14 @@ public class ProfileEditActivity extends AppCompatActivity {
         //set up info to add firebase db
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("id", ""+timestamp);
-        hashMap.put("name", ""+name);
-        hashMap.put("UserType", ""+userType);
-        hashMap.put("address", ""+address);
-        hashMap.put("email", ""+email);
+        hashMap.put("bookTitle", ""+booktitle);
+        hashMap.put("Description", ""+des);
+        hashMap.put("Category", ""+category);
         hashMap.put("timestamp", timestamp);
         hashMap.put("uid", ""+firebaseAuth.getUid());
 
         //add firebase db
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Edited Users");
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Books");
         ref.child(""+timestamp)
                 .setValue(hashMap)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -122,7 +121,7 @@ public class ProfileEditActivity extends AppCompatActivity {
                     public void onSuccess(Void unused) {
                         //category add
                         progressDialog.dismiss();
-                        Toast.makeText(ProfileEditActivity.this, " User Updated successfully....", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddBookActivity.this, "Your Book successfully....", Toast.LENGTH_SHORT).show();
 
                     }
                 })
@@ -131,8 +130,9 @@ public class ProfileEditActivity extends AppCompatActivity {
                     public void onFailure(@NonNull Exception e) {
                         //category failed
                         progressDialog.dismiss();
-                        Toast.makeText(ProfileEditActivity.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddBookActivity.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }
+
 }
