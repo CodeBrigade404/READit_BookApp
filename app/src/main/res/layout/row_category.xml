@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -19,27 +18,26 @@
 
         <TextView
             android:id="@+id/categoryTv"
-            android:layout_width="258dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="Category Title"
-            android:textColor="@color/black" />
-
+            android:textColor="@color/black"
+            android:layout_weight="1"
+            />
         <ImageButton
-            android:id="@+id/editButton"
+            android:id="@+id/editBtn"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:background="@drawable/shape_button03"
             android:src="@drawable/ic_baseline_edit_24"
-            tools:ignore="SpeakableTextPresentCheck" />
-
+            android:background="@drawable/shape_button03"
+            />
         <ImageButton
             android:id="@+id/deleteBtn"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:background="@drawable/shape_button03"
             android:src="@drawable/ic_delete_white"
-            tools:ignore="SpeakableTextPresentCheck" />
+            android:background="@drawable/shape_button03"
+            />
 
 
     </LinearLayout>

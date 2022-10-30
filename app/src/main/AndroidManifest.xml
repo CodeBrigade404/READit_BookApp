@@ -28,6 +28,9 @@
             android:name=".SelectAdminActivity"
             android:exported="false" />
         <activity
+            android:name=".CategoryEditActivity"
+            android:exported="false" />
+        <activity
             android:name=".AddCommentActivity"
             android:exported="false" />
         <activity

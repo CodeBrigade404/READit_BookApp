@@ -16,6 +16,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.bookapp.CategoryEditActivity;
 import com.example.bookapp.PdfListAdminActivity;
 import com.example.bookapp.filters.FilterCategory;
 import com.example.bookapp.models.ModelCategory;
@@ -66,6 +67,7 @@ public class AdapterCategory extends RecyclerView.Adapter<AdapterCategory.Holder
 
         //handle click ,delete category
         holder.deleteBtn.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
                 //confirm delete dialog
@@ -91,6 +93,7 @@ public class AdapterCategory extends RecyclerView.Adapter<AdapterCategory.Holder
             }
         });
 
+
         //handle item click,goto pdf, also pass pdf category and categoryid
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,6 +102,15 @@ public class AdapterCategory extends RecyclerView.Adapter<AdapterCategory.Holder
                 intent.putExtra("categoryId",id);
                 intent.putExtra("categoryTitle",category);
                 context.startActivity(intent);
+            }
+        });
+        holder.editBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, CategoryEditActivity.class);
+                intent.putExtra("id",model.getId());
+                context.startActivity(intent);
+
             }
         });
 
@@ -144,13 +156,14 @@ public class AdapterCategory extends RecyclerView.Adapter<AdapterCategory.Holder
     class HolderCategory extends RecyclerView.ViewHolder{
         //UI view of row_category.xml
         TextView categoryTv;
-        ImageButton deleteBtn;
+        ImageButton deleteBtn,editBtn;
         public HolderCategory(@NonNull View itemView) {
             super(itemView);
             //init UI views
 
             categoryTv = binding.categoryTv;
             deleteBtn = binding.deleteBtn;
+            editBtn = binding.editBtn;
         }
     }
 }
