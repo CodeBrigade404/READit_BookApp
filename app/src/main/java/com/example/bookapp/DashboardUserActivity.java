@@ -61,6 +61,7 @@ public class DashboardUserActivity extends AppCompatActivity {
                 startActivity(new Intent(DashboardUserActivity.this,ProfileActivity.class));
             }
         });
+
         binding.book1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

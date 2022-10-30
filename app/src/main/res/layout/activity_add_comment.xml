@@ -110,7 +110,16 @@
                 android:layout_marginTop="110dp"
                 android:background="@drawable/shape_button01"
                 android:text="Add Comment"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white" />
+            <!--AddComment button-->
+            <Button
+                android:id="@+id/ViewCommentBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="170dp"
+                android:background="@drawable/shape_button01"
+                android:text="View Comment"
+                android:textColor="@color/white" />
 
 
         </RelativeLayout>

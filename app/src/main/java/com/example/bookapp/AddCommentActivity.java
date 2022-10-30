@@ -64,6 +64,15 @@ public class AddCommentActivity extends AppCompatActivity {
 
             }
         });
+
+        //handle click, begin register
+        binding.ViewCommentBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AddCommentActivity.this,CommentView.class));
+
+            }
+        });
     }
 
     private String book = "", comment = "";
