@@ -103,6 +103,7 @@ public class CategoryAddActivity extends AppCompatActivity {
                         //category add
                         progressDialog.dismiss();
                         Toast.makeText(CategoryAddActivity.this, "Category added successfully....", Toast.LENGTH_SHORT).show();
+                        onBackPressed();
 
                     }
                 })
