@@ -25,6 +25,13 @@
             android:layout_weight="1"
             />
         <ImageButton
+            android:id="@+id/editBtn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_baseline_edit_24"
+            android:background="@drawable/shape_button03"
+            />
+        <ImageButton
             android:id="@+id/deleteBtn"
             android:layout_width="48dp"
             android:layout_height="48dp"
