@@ -16,6 +16,9 @@
         android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".CategoryEditActivity"
+            android:exported="false" />
+        <activity
             android:name=".ViewPdfActivity"
             android:exported="false" />
         <activity
