@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.bookapp.databinding.ActivityDashboardUserBinding;
@@ -21,11 +22,24 @@ public class DashboardUserActivity extends AppCompatActivity {
 
     private ImageView book1,book2,book3,book4,book5,book6;
 
+    Button pdfbtn1;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityDashboardUserBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        pdfbtn1 = findViewById(R.id.viewBtn1);
+        pdfbtn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DashboardUserActivity.this,ViewPdfActivity.class);
+            }
+
+        });
+
 
         //init firebase auth
         firebaseAuth = FirebaseAuth.getInstance();
