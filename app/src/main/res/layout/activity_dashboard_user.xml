@@ -87,6 +87,9 @@
             android:src="@drawable/book5" />
 
     </LinearLayout>
+
+
+    <!---View Buttons first row-->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
@@ -95,6 +98,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="View"
+            android:paddingLeft="12dp"
             android:layout_marginTop="200dp"
             android:layout_marginLeft="30dp"/>
         <Button
@@ -111,11 +115,45 @@
             android:layout_marginLeft="40dp"/>
     </LinearLayout>
 
+    <!---Comment Buttons first row-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/commentBtn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="comment"
+            android:textSize="10sp"
+            android:backgroundTint="@color/gray01"
+            android:paddingLeft="12dp"
+            android:layout_marginTop="240dp"
+            android:layout_marginLeft="30dp"/>
+        <Button
+            android:id="@+id/commentBtn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="240dp"
+            android:layout_marginLeft="30dp"
+            android:text="comment"
+            android:textSize="10sp"
+            android:backgroundTint="@color/gray01"/>
+        <Button
+            android:id="@+id/commentBtn3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="comment"
+            android:textSize="10sp"
+            android:backgroundTint="@color/gray01"
+            android:layout_marginTop="240dp"
+            android:layout_marginLeft="40dp"/>
+    </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp">
+        android:layout_marginTop="240dp">
 
 
         <ImageView
@@ -142,28 +180,68 @@
             android:src="@drawable/boo2" />
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
+
         <Button
             android:id="@+id/viewBtn4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="View"
-            android:layout_marginTop="410dp"
-            android:layout_marginLeft="30dp"/>
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="450dp"
+            android:text="View" />
+
         <Button
+            android:id="@+id/viewBtn5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="View"
-            android:layout_marginTop="410dp"
-            android:layout_marginLeft="30dp"/>
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="450dp"
+            android:text="View" />
+
         <Button
+            android:id="@+id/viewBtn6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="View"
-            android:layout_marginTop="410dp"
-            android:layout_marginLeft="40dp"/>
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="450dp"
+            android:text="View" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/commentBtn4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="490dp"
+            android:text="comment"
+            android:textSize="10sp"
+            android:backgroundTint="@color/gray01" />
+
+        <Button
+            android:id="@+id/commentBtn5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="490dp"
+            android:text="comment"
+            android:textSize="10sp"
+            android:backgroundTint="@color/gray01" />
+
+        <Button
+            android:id="@+id/commentBtn6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="490dp"
+            android:text="comment"
+            android:textSize="10sp"
+            android:backgroundTint="@color/gray01" />
     </LinearLayout>
 
 </RelativeLayout>

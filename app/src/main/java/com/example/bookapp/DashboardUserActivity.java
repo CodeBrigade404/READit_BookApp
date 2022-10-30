@@ -80,7 +80,43 @@ public class DashboardUserActivity extends AppCompatActivity {
 
         //onclick functions
 
-
+        //handle click, go to register screen
+        binding.commentBtn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DashboardUserActivity.this, AddCommentActivity.class));
+            }
+        });
+        binding.commentBtn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DashboardUserActivity.this, AddCommentActivity.class));
+            }
+        });
+        binding.commentBtn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DashboardUserActivity.this, AddCommentActivity.class));
+            }
+        });
+        binding.commentBtn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DashboardUserActivity.this, AddCommentActivity.class));
+            }
+        });
+        binding.commentBtn5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DashboardUserActivity.this, AddCommentActivity.class));
+            }
+        });
+        binding.commentBtn6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DashboardUserActivity.this, AddCommentActivity.class));
+            }
+        });
 
     }
 
