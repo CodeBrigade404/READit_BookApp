@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ViewBookActivity">
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/purple_700">
+
+        <TextView
+            android:id="@+id/heTile"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:text="categories"
+            android:textColor="@color/white"
+            android:textSize="20dp">
+
+
+        </TextView>
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:text="+Income"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:layout_below="@+id/heTile">
+
+
+        </TextView>
+        <ImageButton
+            android:id="@+id/backBtn"
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:background="@color/purple_700">
+
+
+        </ImageButton>
+
+
+
+    </RelativeLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/ctagory"
+        android:layout_width="match_parent"
+
+        android:layout_height="match_parent"
+        android:layout_above="@+id/Lctr"
+        android:layout_below="@+id/header"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/row_category">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+
+    <LinearLayout
+        android:id="@+id/Lctr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/ctr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add category">
+
+        </Button>
+
+    </LinearLayout>
+
+
+
+
+
+</RelativeLayout>

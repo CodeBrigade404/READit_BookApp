@@ -59,12 +59,22 @@ public class AddBookActivity extends AppCompatActivity {
             }
         });
 
+
+
         //handle click, begin register
         binding.submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 validateDate();
 
+            }
+        });
+
+        //handle click,start category add screen
+        binding.ViewBookBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AddBookActivity.this, ViewBookActivity.class));
             }
         });
     }
