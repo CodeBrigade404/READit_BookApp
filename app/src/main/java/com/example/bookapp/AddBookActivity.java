@@ -74,31 +74,30 @@ public class AddBookActivity extends AppCompatActivity {
         binding.ViewBookBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AddBookActivity.this, ViewBookActivity.class));
+                startActivity(new Intent(AddBookActivity.this, ViewAllBooksActivity.class));
             }
         });
     }
 
-    private String booktitle= "", des = "", category = "";
+    private String book= "",category = "" ,des = "";
     private void validateDate() {
         /*before creating accounts*/
 
         //get data
-        booktitle = binding.titleEt.getText().toString().trim();
-        des = binding.descriptionEt.getText().toString().trim();
+        book = binding.titleEt.getText().toString().trim();
         category = binding.categoryTv.getText().toString().trim();
-
+        des = binding.descriptionEt.getText().toString().trim();
 
 
         //validate data
-        if (TextUtils.isEmpty(booktitle)){
+        if (TextUtils.isEmpty(book)){
             Toast.makeText(this,"Enter Book name....",Toast.LENGTH_SHORT).show();
         }
-        else if(TextUtils.isEmpty(des)){
-            Toast.makeText(this,"Enter Description...!",Toast.LENGTH_SHORT).show();
+        else if (TextUtils.isEmpty(category)){
+            Toast.makeText(this,"Enter Category name....",Toast.LENGTH_SHORT).show();
         }
-        else if(TextUtils.isEmpty( category)){
-            Toast.makeText(this,"Enter Category....!",Toast.LENGTH_SHORT).show();
+        else if (TextUtils.isEmpty(des)){
+            Toast.makeText(this,"Enter Description name....",Toast.LENGTH_SHORT).show();
         }
         else{
             createComment();
@@ -116,15 +115,15 @@ public class AddBookActivity extends AppCompatActivity {
         //set up info to add firebase db
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("id", ""+timestamp);
-        hashMap.put("bookTitle", ""+booktitle);
-        hashMap.put("Description", ""+des);
-        hashMap.put("Category", ""+category);
+        hashMap.put("book", ""+book);
+        hashMap.put("category", ""+category);
+        hashMap.put("description", ""+des);
         hashMap.put("timestamp", timestamp);
         hashMap.put("uid", ""+firebaseAuth.getUid());
 
         //add firebase db
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Books");
-        ref.child(""+timestamp)
+        ref.child(firebaseAuth.getUid()).child(""+timestamp)
                 .setValue(hashMap)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override

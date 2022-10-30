@@ -8,9 +8,9 @@ public class ModelBook {
     public ModelBook() {
     }
 
-    public ModelBook(String id, String category, String uid, long timestamp) {
+    public ModelBook(String id, String book, String uid, long timestamp) {
         this.id = id;
-        this.book = category;
+        this.book = book;
         this.uid = uid;
         this.timestamp = timestamp;
     }
@@ -25,11 +25,11 @@ public class ModelBook {
         this.id = id;
     }
 
-    public String getCategory() {
+    public String getBook() {
         return book;
     }
 
-    public void setCategory(String book) {
+    public void setBook(String book) {
         this.book = book;
     }
 

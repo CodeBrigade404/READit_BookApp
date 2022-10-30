@@ -48,6 +48,13 @@ public class ViewBookActivity extends AppCompatActivity {
 
             }
         });
+        binding.backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ViewBookActivity.this,AddBookActivity.class));
+
+            }
+        });
 
 
     }

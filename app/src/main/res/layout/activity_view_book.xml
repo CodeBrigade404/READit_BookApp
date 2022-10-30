@@ -16,35 +16,27 @@
             android:id="@+id/heTile"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:fontFamily="casual"
             android:gravity="center"
-            android:text="categories"
+            android:text="Books"
             android:textColor="@color/white"
             android:textSize="20dp">
 
 
         </TextView>
-        <TextView
-
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:fontFamily="casual"
-            android:gravity="center"
-            android:text="+Income"
-            android:textColor="@color/white"
-            android:textSize="15dp"
-            android:layout_below="@+id/heTile">
 
 
-        </TextView>
+
         <ImageButton
             android:id="@+id/backBtn"
-            android:layout_width="30dp"
-            android:layout_height="40dp"
-            android:background="@color/purple_700">
-
-
-        </ImageButton>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@android:color/transparent"
+            android:padding="5dp"
+            android:src="@drawable/ic_back_white" />
 
 
 
@@ -63,7 +55,7 @@
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="5dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/row_category">
+        tools:listitem="@layout/row_book">
 
     </androidx.recyclerview.widget.RecyclerView>
 
@@ -82,7 +74,7 @@
             android:id="@+id/ctr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Add category">
+            android:text="Add Books">
 
         </Button>
 

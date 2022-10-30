@@ -17,12 +17,14 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bookapp.PdfListAdminActivity;
+import com.example.bookapp.databinding.RowBookBinding;
 import com.example.bookapp.databinding.RowCategoryBinding;
 import com.example.bookapp.filters.FilterCategory;
 import com.example.bookapp.models.ModelBook;
 import com.example.bookapp.models.ModelCategory;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -30,25 +32,26 @@ import java.util.ArrayList;
 
 public class AdapterBook extends RecyclerView.Adapter<AdapterBook.HolderCategory>  {
     private Context context;
-    public ArrayList<ModelBook> categoryArrayList, filterList;
+    public ArrayList<ModelBook> categoryArrayList;
 
     //view binding
-    private RowCategoryBinding binding;
+    private RowBookBinding binding;
 
+    private FirebaseAuth firebaseAuth;
 //    //instance of filter class
 //    private FilterCategory filter;
 
     public AdapterBook(Context context, ArrayList<ModelBook> categoryArrayList) {
         this.context = context;
         this.categoryArrayList = categoryArrayList;
-        this.filterList = categoryArrayList;
+
     }
 
     @NonNull
     @Override
     public HolderCategory onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         //bind row_category.xml
-        binding = RowCategoryBinding.inflate(LayoutInflater.from(context),parent,false);
+        binding = RowBookBinding.inflate(LayoutInflater.from(context),parent,false);
 
         return new HolderCategory(binding.getRoot());
     }
@@ -58,12 +61,12 @@ public class AdapterBook extends RecyclerView.Adapter<AdapterBook.HolderCategory
         //get data
         ModelBook model = categoryArrayList.get(position);
         String id = model.getId();
-        String category  = model.getCategory();
+        String book  = model.getBook();
         String uid = model.getUid();
         long timestamp  =model.getTimestamp();
 
         //set date
-        holder.categoryTv.setText(category);
+        holder.bookTv.setText(book);
 
         //handle click ,delete category
         holder.deleteBtn.setOnClickListener(new View.OnClickListener() {
@@ -97,8 +100,8 @@ public class AdapterBook extends RecyclerView.Adapter<AdapterBook.HolderCategory
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, PdfListAdminActivity.class);
-                intent.putExtra("categoryId",id);
-                intent.putExtra("categoryTitle",category);
+                intent.putExtra("id",id);
+                intent.putExtra("book",book);
                 context.startActivity(intent);
             }
         });
@@ -109,8 +112,8 @@ public class AdapterBook extends RecyclerView.Adapter<AdapterBook.HolderCategory
         //get id of category to delete
         String id = model.getId();
         //firebase db > categories > categoryId
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("categories");
-        ref.child(id)
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Books");
+        ref.child(firebaseAuth.getUid()).child(id)
                 .removeValue()
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -144,14 +147,14 @@ public class AdapterBook extends RecyclerView.Adapter<AdapterBook.HolderCategory
     /*View Holder  class to hold UI views for row_category.xml*/
     class HolderCategory extends RecyclerView.ViewHolder{
         //UI view of row_category.xml
-        TextView categoryTv;
+        TextView bookTv;
         ImageButton deleteBtn;
         public HolderCategory(@NonNull View itemView) {
             super(itemView);
             //init UI views
 
-            categoryTv = binding.categoryTv;
-            deleteBtn = binding.deleteBtn;
+            bookTv = binding.bookTv;
+            deleteBtn = binding.deleteBookBtn;
         }
     }
 }
