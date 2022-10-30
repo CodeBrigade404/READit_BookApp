@@ -34,6 +34,13 @@ public class ProfileActivity extends AppCompatActivity {
         firebaseAuth  = FirebaseAuth.getInstance();
         //loadUserInfo();
 
+        //handle click, go back
+        binding.backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
         binding.profileEditBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
