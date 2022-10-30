@@ -159,11 +159,11 @@ public class PdfAddActivity extends AppCompatActivity {
 
                         //get pdf url
                         Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
-                        while (!uriTask.isSuccessful());
+                        while (!uriTask.isSuccessful()){
                         String upoadedPdfUrl = ""+uriTask.getResult();
 
                         //upload to firebase db
-                        uploadPdfInfoToDb(upoadedPdfUrl,timestamp);
+                        uploadPdfInfoToDb(upoadedPdfUrl,timestamp);}
 
                     }
                 })
@@ -290,7 +290,7 @@ public class PdfAddActivity extends AppCompatActivity {
     private void pdfPickIntent() {
         Log.d(TAG,"pdfPickIntend: starting pdf pick Intent");
         Intent intent  = new Intent();
-        intent.setType("application/pdf");
+        intent.setType("*/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(intent,"Select Pdf"),PDF_PICK_CODE);
     }
@@ -299,16 +299,15 @@ public class PdfAddActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == RESULT_OK){
-            if (requestCode == PDF_PICK_CODE){
+
+
                 Log.d(TAG,"onActivityResult: PDF Picked");
                  pdfUri = data.getData();
                  Log.d(TAG,"onActivityResult : URI"+pdfUri);
 
-            }
-        }else {
-            Log.d(TAG,"onActivityResult : Cancelled picking ");
-            Toast.makeText(this, "Cancelled picking", Toast.LENGTH_SHORT).show();
-        }
+
+
+
+
     }
 }
